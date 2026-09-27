@@ -1,0 +1,410 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url(@fontsource/radio-canada-big/600.css);
+@import url("$lib/assets/style/host-grotesk.css");
+
+:root {
+	--font-body:
+		"Host Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
+		"Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+		"Helvetica Neue", sans-serif;
+	--font-display: "Radio Canada Big", var(--font-body);
+	--transition: linear(
+		0,
+		0.006,
+		0.025 2.8%,
+		0.101 6.1%,
+		0.539 18.9%,
+		0.721 25.3%,
+		0.849 31.5%,
+		0.937 38.1%,
+		0.968 41.8%,
+		0.991 45.7%,
+		1.006 50.1%,
+		1.015 55%,
+		1.017 63.9%,
+		1.001
+	);
+}
+
+@mixin light {
+	// general - Material 3 Expressive Electric Cobalt & Cyan
+	--accent-pink: hsl(221, 83%, 53%);
+	--accent-pink-alt: hsl(221, 83%, 45%);
+	--accent-pink-muted: hsl(221, 83%, 38%);
+	--accent-red: hsl(0, 84%, 60%);
+	--accent-red-alt: hsl(0, 72%, 51%);
+	--accent-purple: hsl(258, 90%, 66%);
+	--accent-purple-alt: hsl(258, 90%, 55%);
+	--accent-blue: hsl(199, 89%, 48%);
+	--accent-blue-alt: hsl(199, 89%, 40%);
+	--accent-green: hsl(158, 64%, 48%);
+	--accent-green-alt: hsl(158, 64%, 38%);
+	--accent: hsl(221, 83%, 53%);
+	--accent-alt: hsl(221, 83%, 45%);
+	--accent-pink-transparent: hsla(221, 83%, 53%, 0);
+	--accent-red-transparent: hsla(0, 84%, 60%, 0);
+	--accent-purple-transparent: hsla(258, 90%, 66%, 0);
+	--accent-blue-transparent: hsla(199, 89%, 48%, 0);
+	--accent-green-transparent: hsla(158, 64%, 48%, 0);
+
+	// foregrounds
+	--fg: hsl(222, 47%, 11%);
+	--fg-muted: hsla(222, 47%, 11%, 0.65);
+	--fg-on-accent: hsl(0, 0%, 100%);
+	--fg-on-badge: hsl(0, 0%, 100%);
+	--fg-accent: hsl(221, 83%, 45%);
+	--fg-failure: var(--accent-red-alt);
+
+	// backgrounds - Crisp Ceramic Slate
+	--bg: hsl(210, 25%, 97%);
+
+	--bg-gradient-from: hsla(221, 83%, 53%, 0.15);
+	--bg-gradient-to: hsla(221, 83%, 53%, 0);
+	--bg-gradient-pink-from: hsla(221, 83%, 53%, 0.15);
+	--bg-gradient-pink-to: hsla(221, 83%, 53%, 0);
+	--bg-gradient-pink-alt-from: hsl(221, 83%, 53%);
+	--bg-gradient-pink-alt-to: hsl(221, 83%, 92%);
+	--bg-gradient-red-from: var(--accent-red);
+	--bg-gradient-red-to: hsla(0, 84%, 60%, 0);
+	--bg-gradient-red-alt-from: var(--accent-red);
+	--bg-gradient-red-alt-to: hsl(0, 84%, 92%);
+	--bg-gradient-purple-from: var(--accent-purple);
+	--bg-gradient-purple-to: hsla(258, 90%, 66%, 0);
+	--bg-gradient-purple-alt-from: var(--accent-purple);
+	--bg-gradient-purple-alt-to: hsl(258, 90%, 92%);
+	--bg-gradient-blue-from: var(--accent-blue);
+	--bg-gradient-blue-to: hsla(199, 89%, 48%, 0);
+	--bg-gradient-blue-alt-from: var(--accent-blue);
+	--bg-gradient-blue-alt-to: hsl(199, 89%, 92%);
+	--bg-gradient-green-from: var(--accent-green);
+	--bg-gradient-green-to: hsla(158, 64%, 48%, 0);
+	--bg-gradient-green-alt-from: var(--accent-green-alt);
+	--bg-gradient-green-alt-to: hsl(158, 64%, 92%);
+	--bg-gradient-image-from: hsla(210, 25%, 97%, 0.5);
+	--bg-gradient-image-to: hsla(210, 25%, 97%, 1);
+
+	--bg-gradient: linear-gradient(
+		to bottom,
+		var(--bg-gradient-from),
+		var(--bg-gradient-to) 100%
+	);
+	--bg-gradient-pink: linear-gradient(
+		to bottom,
+		var(--bg-gradient-pink-from),
+		var(--bg-gradient-pink-to) 25%
+	);
+	--bg-gradient-pink-alt: linear-gradient(
+		to top,
+		var(--bg-gradient-pink-alt-from),
+		var(--bg-gradient-pink-alt-to) 100%
+	);
+	--bg-gradient-red: linear-gradient(
+		to bottom,
+		var(--bg-gradient-red-from),
+		var(--bg-gradient-red-to) 25%
+	);
+	--bg-gradient-red-alt: linear-gradient(
+		to top,
+		var(--bg-gradient-red-alt-from),
+		var(--bg-gradient-red-alt-to) 100%
+	);
+	--bg-gradient-purple: linear-gradient(
+		to bottom,
+		var(--bg-gradient-purple-from),
+		var(--bg-gradient-purple-to) 25%
+	);
+	--bg-gradient-purple-alt: linear-gradient(
+		to top,
+		var(--bg-gradient-purple-alt-from),
+		var(--bg-gradient-purple-alt-to) 100%
+	);
+	--bg-gradient-blue: linear-gradient(
+		to bottom,
+		var(--bg-gradient-blue-from),
+		var(--bg-gradient-blue-to) 25%
+	);
+	--bg-gradient-blue-alt: linear-gradient(
+		to top,
+		var(--bg-gradient-blue-alt-from),
+		var(--bg-gradient-blue-alt-to) 100%
+	);
+	--bg-gradient-green: linear-gradient(
+		to bottom,
+		var(--bg-gradient-green-from),
+		var(--bg-gradient-green-to) 25%
+	);
+	--bg-gradient-green-alt: linear-gradient(
+		to top,
+		var(--bg-gradient-green-alt-from),
+		var(--bg-gradient-green-alt-to) 100%
+	);
+	--bg-gradient-image: linear-gradient(
+		to bottom,
+		var(--bg-gradient-image-from),
+		var(--bg-gradient-image-to) 100%
+	);
+	--bg-panel: hsl(0, 0%, 100%);
+	--bg-panel-highlight: hsl(214, 32%, 93%);
+	--bg-separator: hsla(215, 16%, 47%, 0.18);
+	--bg-button: var(--bg-panel-highlight);
+	--bg-badge: var(--accent);
+	--bg-input: #e2e8f0;
+
+	--shadow-panel: 0 4px 20px -2px rgba(15, 23, 42, 0.08);
+}
+
+@mixin dark {
+	// general - Material 3 Expressive Dark
+	--accent-pink: hsl(217, 91%, 60%);
+	--accent-pink-alt: hsl(221, 83%, 53%);
+	--accent-red: hsl(0, 84%, 65%);
+	--accent-red-alt: hsl(0, 72%, 55%);
+	--accent-purple: hsl(258, 90%, 70%);
+	--accent-purple-alt: hsl(258, 90%, 60%);
+	--accent-blue: hsl(199, 89%, 55%);
+	--accent-blue-alt: hsl(199, 89%, 45%);
+	--accent: hsl(217, 91%, 60%);
+	--accent-alt: hsl(221, 83%, 53%);
+	--accent-green: hsl(158, 64%, 52%);
+	--accent-green-alt: hsl(158, 64%, 42%);
+	--accent-pink-transparent: hsla(217, 91%, 60%, 0);
+	--accent-red-transparent: hsla(0, 84%, 65%, 0);
+	--accent-purple-transparent: hsla(258, 90%, 70%, 0);
+	--accent-blue-transparent: hsla(199, 89%, 55%, 0);
+	--accent-green-transparent: hsla(158, 64%, 52%, 0);
+
+	// foregrounds
+	--fg: hsl(0, 0%, 100%);
+	--fg-muted: hsla(215, 25%, 85%, 0.7);
+	--fg-on-accent: hsl(0, 0%, 0%);
+	--fg-on-badge: hsl(0, 0%, 0%);
+	--fg-accent: var(--accent);
+	--fg-failure: var(--accent-red);
+
+	// backgrounds - Deep Obsidian Space
+	--bg: hsl(222, 47%, 7%);
+
+	--bg-gradient-from: hsla(217, 91%, 60%, 0.12);
+	--bg-gradient-to: hsla(217, 91%, 60%, 0);
+	--bg-gradient-pink-from: hsla(217, 91%, 60%, 0.12);
+	--bg-gradient-pink-to: hsla(217, 91%, 60%, 0);
+	--bg-gradient-pink-alt-from: var(--accent-pink);
+	--bg-gradient-pink-alt-to: hsl(217, 91%, 90%);
+	--bg-gradient-red-from: hsla(0, 84%, 65%, 0.12);
+	--bg-gradient-red-to: hsla(0, 84%, 65%, 0);
+	--bg-gradient-red-alt-from: var(--accent-red);
+	--bg-gradient-red-alt-to: hsl(0, 84%, 90%);
+	--bg-gradient-purple-from: hsla(258, 90%, 70%, 0.12);
+	--bg-gradient-purple-to: hsla(258, 90%, 70%, 0);
+	--bg-gradient-purple-alt-from: var(--accent-purple);
+	--bg-gradient-purple-alt-to: hsl(258, 90%, 90%);
+	--bg-gradient-blue-from: hsla(199, 89%, 55%, 0.12);
+	--bg-gradient-blue-to: hsla(199, 89%, 55%, 0);
+	--bg-gradient-blue-alt-from: var(--accent-blue);
+	--bg-gradient-blue-alt-to: hsl(199, 89%, 90%);
+	--bg-gradient-green-from: hsla(158, 64%, 52%, 0.12);
+	--bg-gradient-green-to: hsla(158, 64%, 52%, 0);
+	--bg-gradient-green-alt-from: var(--accent-green-alt);
+	--bg-gradient-green-alt-to: hsl(158, 64%, 90%);
+	--bg-gradient-image-from: hsla(222, 47%, 7%, 0.5);
+	--bg-gradient-image-to: hsla(222, 47%, 7%, 1);
+
+	--bg-gradient: linear-gradient(
+		to bottom,
+		var(--bg-gradient-from),
+		var(--bg-gradient-to) 100%
+	);
+	--bg-gradient-pink: linear-gradient(
+		to bottom,
+		var(--bg-gradient-pink-from),
+		var(--bg-gradient-pink-to) 25%
+	);
+	--bg-gradient-pink-alt: linear-gradient(
+		to top,
+		var(--bg-gradient-pink-alt-from),
+		var(--bg-gradient-pink-alt-to) 100%
+	);
+	--bg-gradient-red: linear-gradient(
+		to bottom,
+		var(--bg-gradient-red-from),
+		var(--bg-gradient-red-to) 25%
+	);
+	--bg-gradient-red-alt: linear-gradient(
+		to top,
+		var(--bg-gradient-red-alt-from),
+		var(--bg-gradient-red-alt-to) 100%
+	);
+	--bg-gradient-purple: linear-gradient(
+		to bottom,
+		var(--bg-gradient-purple-from),
+		var(--bg-gradient-purple-to) 25%
+	);
+	--bg-gradient-purple-alt: linear-gradient(
+		to top,
+		var(--bg-gradient-purple-alt-from),
+		var(--bg-gradient-purple-alt-to) 100%
+	);
+	--bg-gradient-blue: linear-gradient(
+		to bottom,
+		var(--bg-gradient-blue-from),
+		var(--bg-gradient-blue-to) 25%
+	);
+	--bg-gradient-blue-alt: linear-gradient(
+		to top,
+		var(--bg-gradient-blue-alt-from),
+		var(--bg-gradient-blue-alt-to) 100%
+	);
+	--bg-gradient-green: linear-gradient(
+		to bottom,
+		var(--bg-gradient-green-from),
+		var(--bg-gradient-green-to) 25%
+	);
+	--bg-gradient-green-alt: linear-gradient(
+		to top,
+		var(--bg-gradient-green-alt-from),
+		var(--bg-gradient-green-alt-to) 100%
+	);
+	--bg-gradient-image: linear-gradient(
+		to bottom,
+		var(--bg-gradient-image-from),
+		var(--bg-gradient-image-to) 100%
+	);
+	--bg-panel: hsl(222, 40%, 12%);
+	--bg-panel-highlight: hsl(222, 35%, 18%);
+	--bg-separator: hsla(217, 33%, 25%, 0.6);
+	--bg-button: hsl(222, 35%, 18%);
+	--bg-badge: var(--accent);
+
+	--shadow-panel: 0 8px 30px rgba(0, 0, 0, 0.45);
+
+	color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		@include dark;
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		@include light;
+	}
+}
+
+:root.light {
+	@include light;
+}
+
+:root.dark {
+	@include dark;
+}
+
+body {
+	@apply text-foreground font-body font-semibold overflow-x-hidden;
+	width: 100vw;
+	background-color: var(--bg);
+	background-size: 100vw 100vh;
+}
+
+::selection,
+::-moz-selection {
+	@apply bg-accent-blue text-on-accent;
+}
+
+.hoverable {
+	@apply hover:scale-105 duration-200;
+	will-change: transform;
+}
+
+.hoverable-md {
+	@apply hover:scale-110 duration-200;
+	will-change: transform;
+}
+
+.hoverable-lg {
+	@apply hover:scale-[1.15] duration-200;
+	will-change: transform;
+}
+
+.selected {
+	@apply bg-accent-purple !text-black;
+}
+
+@layer components {
+	select {
+		@apply appearance-none;
+	}
+
+	.btn {
+		@apply bg-button flex items-center justify-center overflow-hidden relative cursor-pointer px-6 h-14 rounded-full font-medium focus:!outline-none hover:scale-105 duration-200 active:scale-95 disabled:opacity-50 disabled:pointer-events-none hoverable;
+		transition:
+			opacity 0.2s ease,
+			transform 0.2s ease,
+			background-color 0.2s ease;
+	}
+
+	.btn.highlight {
+		@apply bg-accent text-on-accent;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-display font-semibold;
+	}
+
+	code {
+		@apply font-mono bg-gray-200 rounded-md px-1 dynadark:bg-panel-alt dynadark:text-white;
+	}
+
+	p a {
+		@apply text-accent underline;
+	}
+
+	input[type="text"],
+	select.dropdown {
+		@apply w-full p-3 rounded-lg bg-panel border-2 border-button pl-3 pr-[4rem];
+	}
+
+	input[type="number"]::-webkit-inner-spin-button,
+	input[type="number"]::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	input[type="number"] {
+		-moz-appearance: textfield;
+		appearance: textfield;
+	}
+
+	input[type="text"]::placeholder {
+		@apply text-muted font-normal;
+	}
+
+	input[type="text"]:focus {
+		@apply outline outline-accent outline-2;
+	}
+
+	input[type="range"] {
+		@apply appearance-none bg-panel h-2 rounded-lg;
+	}
+
+	input[type="range"]::-webkit-slider-thumb {
+		@apply appearance-none w-4 h-4 bg-accent rounded-full cursor-pointer;
+	}
+
+	input[type="range"]::-moz-range-thumb {
+		@apply w-4 h-4 bg-accent rounded-full cursor-pointer;
+	}
+
+	hr {
+		@apply border-separator;
+	}
+}

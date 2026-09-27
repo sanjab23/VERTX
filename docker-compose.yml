@@ -1,0 +1,13 @@
+services:
+  vertx:
+    container_name: vertx
+    build:
+      context: .
+      args:
+        PUB_HOSTNAME: ${PUB_HOSTNAME:-localhost:5173}
+        PUB_ENV: ${PUB_ENV:-production}
+        PUB_DISABLE_ALL_EXTERNAL_REQUESTS: ${PUB_DISABLE_ALL_EXTERNAL_REQUESTS:-true}
+        PUB_VERTD_URL: ${PUB_VERTD_URL:-http://localhost:24153}
+    restart: unless-stopped
+    ports:
+      - ${PORT:-3000}:80
