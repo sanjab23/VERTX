@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from "svelte";
 	import { goto, beforeNavigate, afterNavigate } from "$app/navigation";
+	import { base } from "$app/paths";
 
 	import { PUB_PLAUSIBLE_URL, PUB_HOSTNAME } from "$env/static/public";
 	import { DISABLE_ALL_EXTERNAL_REQUESTS, VERT_NAME } from "$lib/util/consts.js";
@@ -161,7 +162,7 @@
 		content="VertX converts image, video, audio, and document files locally in transient browser memory with WebAssembly. Engineered by Jagan, New Horizon College, Kasturi Nagar."
 	/>
 	<meta property="twitter:image" content={featuredImage} />
-	<link rel="manifest" href="/manifest.json" />
+	<link rel="manifest" href="{base}/manifest.json" />
 	<link rel="canonical" href="https://github.com/sanjab23/VERTX" />
 	{#if enablePlausible}
 		<script

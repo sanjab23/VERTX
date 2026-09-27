@@ -18,6 +18,10 @@ const config = {
 			base: process.env.BASE_PATH || "",
 			relative: false,
 		},
+		prerender: {
+			handleHttpError: "warn",
+			handleMissingId: "warn",
+		},
 		env: {
 			publicPrefix: "PUB_",
 			privatePrefix: "PRI_",
