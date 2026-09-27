@@ -1,0 +1,1 @@
+export const env={"PUB_HOSTNAME":"sanjab23.github.io","PUB_PLAUSIBLE_URL":"","PUB_ENV":"production","PUB_VERTD_URL":"https://vertd.vert.sh","PUB_DISABLE_ALL_EXTERNAL_REQUESTS":"true","PUB_DISABLE_FAILURE_BLOCKS":"false","PUB_STRIPE_KEY":"","PUB_DONATION_URL":""}

@@ -1,0 +1,33 @@
+{
+	"name": "VertX",
+	"short_name": "VertX",
+	"description": "VertX - 100% Client-Side WebAssembly File Converter",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#F2ABEE",
+	"icons": [
+		{
+			"src": "lettermark.jpg",
+			"sizes": "192x192",
+			"type": "image/jpeg"
+		},
+		{
+			"src": "lettermark.jpg",
+			"sizes": "512x512",
+			"type": "image/jpeg"
+		},
+		{
+			"src": "lettermark_maskable.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "maskable"
+		},
+		{
+			"src": "lettermark_maskable.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
+		}
+	]
+}
