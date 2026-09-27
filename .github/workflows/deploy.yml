@@ -33,12 +33,20 @@ jobs:
       - name: Install dependencies
         run: bun install
 
+      - name: Prepare environment variables
+        run: cp .env.example .env || true
+
       - name: Build VertX static application
         env:
           BASE_PATH: "/${{ github.event.repository.name }}"
-          PUB_ENV: production
+          PUB_ENV: "production"
           PUB_HOSTNAME: "${{ github.repository_owner }}.github.io"
-          PUB_DISABLE_ALL_EXTERNAL_REQUESTS: "false"
+          PUB_VERTD_URL: "https://vertd.vert.sh"
+          PUB_PLAUSIBLE_URL: ""
+          PUB_DISABLE_ALL_EXTERNAL_REQUESTS: "true"
+          PUB_DISABLE_FAILURE_BLOCKS: "false"
+          PUB_DONATION_URL: ""
+          PUB_STRIPE_KEY: ""
         run: bun run build
 
       - name: Deploy to GitHub Pages
