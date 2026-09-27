@@ -6,6 +6,7 @@
 	import { effects, files } from "$lib/store/index.svelte";
 	import { converters } from "$lib/converters";
 	import { goto } from "$app/navigation";
+	import { base } from "$app/paths";
 	import { page } from "$app/state";
 	import { m } from "$lib/paraglide/messages";
 
@@ -27,7 +28,7 @@
 		if (!fileInput) return;
 		const oldLength = files.files.length;
 		files.add(fileInput.files);
-		if (oldLength !== files.files.length) goto("/convert");
+		if (oldLength !== files.files.length) goto(`${base}/convert`);
 	};
 
 	onMount(() => {

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Panel from "$lib/components/visual/Panel.svelte";
+	import { base } from "$app/paths";
 	import {
 		ChartColumnIcon,
 		PauseIcon,
@@ -94,7 +95,7 @@
 							});
 
 							setTimeout(() => {
-								window.location.href = "/";
+								window.location.href = `${base}/`;
 							}, 1500);
 						} catch (err) {
 							error(

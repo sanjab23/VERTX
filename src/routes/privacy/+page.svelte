@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { m } from "$lib/paraglide/messages";
+	import { base } from "$app/paths";
 	import { link, sanitize } from "$lib/store/index.svelte";
 	import { ShieldCheckIcon, LockIcon, CpuIcon, GraduationCapIcon } from "lucide-svelte";
 	import Panel from "$lib/components/visual/Panel.svelte";
@@ -72,7 +73,7 @@
 						link(
 							["settings_link"],
 							m["privacy.analytics.description"](),
-							["/settings"],
+							[`${base}/settings`],
 							[false],
 						),
 					)}

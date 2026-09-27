@@ -51,7 +51,7 @@
 		dropping.set(false);
 		const oldLength = files.files.length;
 		files.add(e.dataTransfer?.files);
-		if (oldLength !== files.files.length) goto("/convert");
+		if (oldLength !== files.files.length) goto(`${base}/convert`);
 	};
 
 	const handleDrag = (e: DragEvent, drag: boolean) => {
@@ -65,7 +65,7 @@
 		e.preventDefault();
 		const oldLength = files.files.length;
 		files.add(clipboardData.files);
-		if (oldLength !== files.files.length) goto("/convert");
+		if (oldLength !== files.files.length) goto(`${base}/convert`);
 	};
 
 	onMount(() => {

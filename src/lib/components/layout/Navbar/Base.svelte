@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { browser } from "$app/environment";
 	import { page } from "$app/state";
+	import { base } from "$app/paths";
 	import { duration, fade } from "$lib/util/animation";
 	import {
 		effects,
@@ -36,28 +37,28 @@
 	>([
 		{
 			name: m["navbar.upload"](),
-			url: "/",
-			activeMatch: (pathname) => pathname === "/",
+			url: `${base}/`,
+			activeMatch: (pathname) => pathname === `${base}/` || pathname === `${base}` || pathname === "/",
 			icon: UploadIcon,
 		},
 		{
 			name: m["navbar.convert"](),
-			url: "/convert/",
+			url: `${base}/convert/`,
 			activeMatch: (pathname) =>
-				pathname === "/convert/" || pathname === "/convert",
+				pathname === `${base}/convert/` || pathname === `${base}/convert` || pathname === "/convert/" || pathname === "/convert",
 			icon: RefreshCw,
 			badge: files.files.length,
 		},
 		{
 			name: m["navbar.settings"](),
-			url: "/settings/",
-			activeMatch: (pathname) => pathname.startsWith("/settings"),
+			url: `${base}/settings/`,
+			activeMatch: (pathname) => pathname.startsWith(`${base}/settings`) || pathname.startsWith("/settings"),
 			icon: SettingsIcon,
 		},
 		{
 			name: m["navbar.about"](),
-			url: "/about/",
-			activeMatch: (pathname) => pathname.startsWith("/about"),
+			url: `${base}/about/`,
+			activeMatch: (pathname) => pathname.startsWith(`${base}/about`) || pathname.startsWith("/about"),
 			icon: InfoIcon,
 		},
 	]);

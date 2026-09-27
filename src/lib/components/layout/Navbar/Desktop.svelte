@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from "$app/state";
+	import { base } from "$app/paths";
 	import { files, setTheme } from "$lib/store/index.svelte";
 	import clsx from "clsx";
 	import {
@@ -27,28 +28,28 @@
 	>([
 		{
 			name: m["navbar.upload"](),
-			url: "/",
-			activeMatch: (pathname) => pathname === "/",
+			url: `${base}/`,
+			activeMatch: (pathname) => pathname === `${base}/` || pathname === `${base}` || pathname === "/",
 			icon: UploadIcon,
 		},
 		{
 			name: m["navbar.convert"](),
-			url: "/convert/",
+			url: `${base}/convert/`,
 			activeMatch: (pathname) =>
-				pathname === "/convert/" || pathname === "/convert",
+				pathname === `${base}/convert/` || pathname === `${base}/convert` || pathname === "/convert/" || pathname === "/convert",
 			icon: RefreshCw,
 			badge: files.files.length,
 		},
 		{
 			name: m["navbar.settings"](),
-			url: "/settings/",
-			activeMatch: (pathname) => pathname.startsWith("/settings"),
+			url: `${base}/settings/`,
+			activeMatch: (pathname) => pathname.startsWith(`${base}/settings`) || pathname.startsWith("/settings"),
 			icon: SettingsIcon,
 		},
 		{
 			name: m["navbar.about"](),
-			url: "/about/",
-			activeMatch: (pathname) => pathname.startsWith("/about"),
+			url: `${base}/about/`,
+			activeMatch: (pathname) => pathname.startsWith(`${base}/about`) || pathname.startsWith("/about"),
 			icon: InfoIcon,
 		},
 	]);
@@ -60,7 +61,7 @@
 		<div class="w-full flex flex-col items-center">
 			<a
 				class="w-full bg-accent text-on-accent rounded-xl p-2.5 flex items-center justify-center lg:justify-start gap-2.5 mb-6 shadow-sm hover:scale-[1.02] transition-transform"
-				href="/"
+				href="{base}/"
 			>
 				<div class="h-6 w-6 flex-shrink-0 flex items-center justify-center">
 					<Logo iconOnly={true} />
